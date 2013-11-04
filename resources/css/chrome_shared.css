@@ -1,0 +1,89 @@
+body{
+	margin: 0px;
+}
+#navigation {
+	color: #303942;
+	font-family: 'Segoe UI', Tahoma, sans-serif;
+	font-size: 75%;
+	-webkit-transform: translateX(0px);
+	margin-left:0px;
+	float:left;
+}
+#navigation h1{
+	font-size: 1.5em;
+	font-weight: normal;
+	margin-left:20px;
+	-webkit-margin-after: 1em;
+	-webkit-margin-before: 21px;
+	-webkit-margin-start: 23px;
+	color: #5C6166;
+}
+#navigation ul{
+	list-style-type: none;
+	padding: 0;
+}
+#navigation li{
+	-webkit-border-start: 6px solid transparent;
+	-webkit-padding-start: 18px;
+}
+#navigation li.selected{
+	-webkit-border-start-color: rgb(78, 87, 100);
+	cursor: default;
+	pointer-events: none;
+}
+#navigation button{
+	background-color: white;
+	border: 0;
+	color: #999;
+	cursor: pointer;
+	font: inherit;
+	line-height: 17px;
+	margin: 6px 0;
+	padding: 0;
+}
+
+.container{
+	margin-top:20px;
+	color: #303942;
+	font-family: 'Segoe UI', Tahoma, sans-serif;
+	font-size: 75%;
+	float:left;
+}
+.container h1{
+	font-weight: normal;
+	font-size: 1.5em;
+	margin-top:0px;
+}
+.container button, 
+.container input[type="button"], 
+.container input[type="submit"],
+.container select, 
+.container input[type="checkbox"], 
+.container input[type="radio"]{
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	background-image: -webkit-linear-gradient(#EDEDED, #EDEDED 38%, #DEDEDE);
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 2px;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.75);
+	color: #444;
+	font: inherit;
+	margin: 0 1px 0 0;
+	text-shadow: 0 1px 0 #F0F0F0;
+}
+.container input[type="checkbox"]{
+	bottom: 2px;
+	height: 13px;
+	position: relative;
+	vertical-align: middle;
+	width: 13px;
+}
+.container input[type="checkbox"]:checked::before {
+	-webkit-user-select: none;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAcklEQVQY02NgwA/YoJgoEA/Es4DYgJBCJSBeD8SboRinBiYg7kZS2IosyQ/Eakh8LySFq4FYHFlxGRBvBOJYqMRqJMU+yApNkSRAeC0Sux3dfSCTetE0wKyXxOWhMKhTYIr9CAUXyJMzgLgBagBBgDPGAI2LGdNt0T1AAAAAAElFTkSuQmCC');
+	background-size: 100% 100%;
+	content: '';
+	display: block;
+	height: 100%;
+	width: 100%;
+}

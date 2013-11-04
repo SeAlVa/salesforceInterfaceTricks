@@ -1,0 +1,30 @@
+{
+    "name": "Salesforce Login Helper",
+    "version": "0.0.0.7",
+    "manifest_version": 2,
+    "content_scripts": 
+	[
+		{
+			"js": ["jquery.js","login.js"],
+			"css": [ ],
+			"matches": [ "https://login.salesforce.com/*" ],
+			"run_at": "document_end"
+		},{
+			"js": ["jquery.js","test.js"],
+			"css": [ ],
+			"matches": [ "https://test.salesforce.com/*" ],
+			"run_at": "document_end"
+		}
+	],
+    "background":
+	{
+        "scripts" : ["background.js"]
+    },
+    "options_page": "options.html",	
+    "permissions": 
+	[
+		"tabs",  
+		"https://login.salesforce.com/*",
+		"https://test.salesforce.com/*"
+	]	
+}

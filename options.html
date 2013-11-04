@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>Salesforce Login Helper Settings</title>
+	</head>
+	<link rel="stylesheet" href="resources/css/chrome_shared.css">
+	<style>
+		table, td{
+			border-color: #600;
+			border-style: solid;
+		}
+		
+		table{
+			cursor:default;
+			border-width: 0 0 1px 1px;
+			border-spacing: 0;
+			border-collapse: collapse;
+		}
+		
+		td{
+			margin: 0;
+			padding: 4px;
+			border-width: 1px 1px 0 0;
+			background-color: #FFC;
+		}
+		
+		table tr td:hover{
+			background-color:#ccc;
+		}
+		table tr td.passwordCell{
+			color: #FFC;
+		}
+		
+		input{
+			background-color: #FFC;
+			border: 1px solid #996;
+		}
+		
+		input[type="text"], input[type="password"]{
+			width: 100%;
+		}
+		
+		table th{
+			background: #fff url('/resources/images/bgheader.gif') 0 bottom repeat-x;
+			color: #000;
+			font-size: .9em;
+			font-weight: bold;
+			padding: 5px 2px 4px 5px;
+		}
+		
+		.hidden{
+			display:none;
+		}
+	</style>
+	<script src="options.js"></script>
+	<body>
+
+		<div id="navigation" class="sidebar-menu">
+			<h1 i18n-content="shortProductName">Login Helper</h1>
+			<ul>
+				<li id="menu_projects" class="selected">
+					<button class="custom-appearance" >Projects</button>
+				</li>
+				<li id="menu_export">
+					<button class="custom-appearance" >Export</button>
+				</li>
+				<li id="menu_import">
+					<button class="custom-appearance" >Import</button>
+				</li>
+				<li id="menu_about">
+					<button class="custom-appearance" >About</button>
+				</li>
+			</ul>
+		</div>
+
+		<div class="container selected" id="projects" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+			<h1>Login Information</h1>
+			<table border="1" id="projects-table">
+				<tr>
+					<th>Project Name</th>
+					<th>ORG</th>
+					<th>ORG Type</th>
+					<th>Alias</th>
+					<th>User</th>
+					<th>Password</th>
+					<th>Token</th>
+					<th>Action</th>
+				</tr>
+			</table>
+			
+			
+		</div>
+		<div class="container selected hidden" id="import" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+			<h1>Import</h1>
+			<table border="1">
+				<tr>
+					<th>Paste here the text copied on the other computer and click <button id="import_save" >Save</button></th>
+				</tr><tr>
+					<td>
+						<textarea id="loginInfoImport" cols="120" rows="10"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="container selected hidden" id="export" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+			<h1>Export</h1>
+			<table border="1">
+				<tr>
+					<th>Copy this text to transfer the information to another computer</th>
+				</tr>
+				<tr>
+					<td>
+						<textarea id="loginInfo" cols="120" rows="10"></textarea>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="container selected hidden" id="about" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+			<h1>About</h1>
+			This Chrome extension has been made by SeAlVaSoftware<br/>
+			If you have any suggestions, please visit http://cloud.sealvasoftware.com<br/><br/>
+			TODO
+			<hr/>
+			<ul>
+				<li>Edit Button</li>
+				<li>Choose Project (Settings page)</li>
+				<li>Choose Project (salesforce page)</li>
+				<li>Add support to Magic-login</li>
+			</ul>
+			<hr/>
+			
+			<h1>Change Log</h1>
+			Version 0.0.0.7
+			<ul>
+				<li>Start using Change Log</li>
+				<li>Updated to work with the new login theme</li>
+			</ul>
+		</div>
+	</body>
+</html>
