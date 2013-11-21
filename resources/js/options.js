@@ -118,6 +118,8 @@ function saveOptions(){
 }
 document.addEventListener('DOMContentLoaded', function (){
 	loadOptions();
+	document.querySelector('#menu_loginHelper').addEventListener('click', menu_loginHelper_click);
+	document.querySelector('#menu_interfaceEnhancer').addEventListener('click', menu_interfaceEnhancer_click);
 	document.querySelector('#menu_projects').addEventListener('click', menu_projects_click);
 	document.querySelector('#menu_export').addEventListener('click', menu_export_click);
 	document.querySelector('#menu_import').addEventListener('click', menu_import_click);
@@ -218,15 +220,43 @@ function createOrgPicker(paramID){
 	return returned;
 }
 
+function copy(toBeCopied) {
+	$('#clipboard').val(toBeCopied);
+	$('#clipboard').select();
+	//document.execCommand('SelectAll');
+	document.execCommand("Copy",false,null);
+}
+
 function menu_unclick(menu){
+	copy(menu);
+	document.querySelector('#welcome').setAttribute('class','container selected hidden');
+
+	if (menu == 'loginHelper' || menu == 'interfaceEnhancer') {
+		document.querySelector('#menu_loginHelper').setAttribute('class',menu=='loginHelper'?'selected':'');
+		document.querySelector('#menu_interfaceEnhancer').setAttribute('class',menu=='interfaceEnhancer'?'selected':'');
+		
+		if(menu == 'interfaceEnhancer'){
+			$('#menu_projects, #menu_export, #menu_import, #menu_about').fadeOut();
+		} else if (menu == 'loginHelper'){
+			$('#menu_projects, #menu_export, #menu_import, #menu_about').fadeIn();
+		}
+	}
+	
+	
 	document.querySelector('#menu_projects').setAttribute('class',menu=='projects'?'selected':'');
-	document.querySelector('#projects').setAttribute('class','container selected ' + (menu=='projects'?'':'hidden'));
 	document.querySelector('#menu_export').setAttribute('class',menu=='export'?'selected':'');
-	document.querySelector('#export').setAttribute('class','container selected ' + (menu=='export'?'':'hidden'));
 	document.querySelector('#menu_import').setAttribute('class',menu=='import'?'selected':'');
-	document.querySelector('#import').setAttribute('class','container selected ' + (menu=='import'?'':'hidden'));
 	document.querySelector('#menu_about').setAttribute('class',menu=='about'?'selected':'');
-	document.querySelector('#about').setAttribute('class','container selected ' + (menu=='about'?'':'hidden'));
+
+	
+	$('.container.selected:visible').fadeOut();
+	$('#'+menu).fadeIn();
+}
+function menu_loginHelper_click(){
+	menu_unclick('loginHelper');
+}
+function menu_interfaceEnhancer_click(){
+	menu_unclick('interfaceEnhancer');
 }
 function menu_projects_click(){
 	menu_unclick('projects');

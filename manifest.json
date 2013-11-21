@@ -1,30 +1,37 @@
 {
-    "name": "Salesforce Login Helper",
-    "version": "0.0.0.7",
+    "name": "Salesforce.com Interface Enhancer",
+    "version": "0.0.0.8",
     "manifest_version": 2,
     "content_scripts": 
 	[
 		{
-			"js": ["jquery.js","login.js"],
+			"js": ["resources/js/jquery.js","resources/js/login.js"],
 			"css": [ ],
 			"matches": [ "https://login.salesforce.com/*" ],
 			"run_at": "document_end"
 		},{
-			"js": ["jquery.js","test.js"],
+			"js": ["resources/js/jquery.js","resources/js/test.js"],
 			"css": [ ],
 			"matches": [ "https://test.salesforce.com/*" ],
 			"run_at": "document_end"
+		},{
+			"js": ["resources/js/jquery.js","resources/js/schemaBuilder.js" ],
+			"css": [ ],
+			"matches": [ "https://*.salesforce.com/_ui/platform/schema/ui/schemabuilder/*" ],
+			"run_at": "document_end"
 		}
 	],
-    "background":
-	{
-        "scripts" : ["background.js"]
+	"web_accessible_resources": [
+    	"resources/js/jquery.js"
+	],
+    "background":{
+        "scripts" : ["resources/js/background.js"]
     },
     "options_page": "options.html",	
     "permissions": 
 	[
+		"clipboardWrite",
 		"tabs",  
-		"https://login.salesforce.com/*",
-		"https://test.salesforce.com/*"
+		"https://*.salesforce.com/*"
 	]	
 }

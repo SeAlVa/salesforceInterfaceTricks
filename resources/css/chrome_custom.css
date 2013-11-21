@@ -1,0 +1,55 @@
+table, td{
+	border-color: #600;
+	border-style: solid;
+}
+	
+table{
+	cursor:default;
+	border-width: 0 0 1px 1px;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td{
+	margin: 0;
+	padding: 4px;
+	border-width: 1px 1px 0 0;
+	background-color: #FFC;
+}
+
+table tr td:hover{
+	background-color:#ccc;
+}
+table tr td.passwordCell{
+	color: #FFC;
+}
+
+input{
+	background-color: #FFC;
+	border: 1px solid #996;
+}
+
+input[type="text"], input[type="password"]{
+	width: 100%;
+}
+
+table th{
+	background: #fff url('/resources/images/bgheader.gif') 0 bottom repeat-x;
+	color: #000;
+	font-size: .9em;
+	font-weight: bold;
+	padding: 5px 2px 4px 5px;
+}
+
+.hidden{
+	display:none;
+}
+li{
+	cursor:pointer;
+}
+li.selected{
+	cursor: default;
+}
+#navigation .selected > button {
+	color: rgb(70, 78, 90);
+}

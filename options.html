@@ -1,79 +1,90 @@
 <html>
 	<head>
-		<title>Salesforce Login Helper Settings</title>
+		<title>Salesforce.com Interface Enhancer - Settings</title>
 	</head>
-	<link rel="stylesheet" href="resources/css/chrome_shared.css">
-	<style>
-		table, td{
-			border-color: #600;
-			border-style: solid;
-		}
-		
-		table{
-			cursor:default;
-			border-width: 0 0 1px 1px;
-			border-spacing: 0;
-			border-collapse: collapse;
-		}
-		
-		td{
-			margin: 0;
-			padding: 4px;
-			border-width: 1px 1px 0 0;
-			background-color: #FFC;
-		}
-		
-		table tr td:hover{
-			background-color:#ccc;
-		}
-		table tr td.passwordCell{
-			color: #FFC;
-		}
-		
-		input{
-			background-color: #FFC;
-			border: 1px solid #996;
-		}
-		
-		input[type="text"], input[type="password"]{
-			width: 100%;
-		}
-		
-		table th{
-			background: #fff url('/resources/images/bgheader.gif') 0 bottom repeat-x;
-			color: #000;
-			font-size: .9em;
-			font-weight: bold;
-			padding: 5px 2px 4px 5px;
-		}
-		
-		.hidden{
-			display:none;
-		}
-	</style>
-	<script src="options.js"></script>
+	<link rel="stylesheet" href="/resources/css/chrome_shared.css"/>
+	<link rel="stylesheet" href="/resources/css/chrome_custom.css"/>
+
+	<script src="/resources/js/jquery.js"></script>
+	<script src="/resources/js/options.js"></script>
 	<body>
 
 		<div id="navigation" class="sidebar-menu">
-			<h1 i18n-content="shortProductName">Login Helper</h1>
+			<h1 i18n-content="shortProductName">SFDC Usage <br/>Enhancer</h1>
 			<ul>
-				<li id="menu_projects" class="selected">
+				<li id="menu_interfaceEnhancer" >
+					<button class="custom-appearance" >Interface Enhancer</button>
+				</li>
+				<li id="menu_loginHelper">
+					<button class="custom-appearance" >Login Helper</button>
+				</li>
+
+				<li id="menu_projects" class="hidden" style="margin-top:27px;display:none;">
 					<button class="custom-appearance" >Projects</button>
 				</li>
-				<li id="menu_export">
+				<li id="menu_export" class="hidden" style="display:none;">
 					<button class="custom-appearance" >Export</button>
 				</li>
-				<li id="menu_import">
+				<li id="menu_import" class="hidden" style="display:none;">
 					<button class="custom-appearance" >Import</button>
 				</li>
-				<li id="menu_about">
+				<li id="menu_about" class="hidden" style="display:none;">
 					<button class="custom-appearance" >About</button>
 				</li>
 			</ul>
 		</div>
+		
+		<div class="container selected" id="welcome" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+			<h1>Welcome to Salesforce.com Usage Enhance Extension</h1>
+			<hr/>
+			The aim of this chrome extension is to provide some tools and simple <br/>
+			interface changes to those users who need them. <br/>
+			<br/>
+			This is a list of features that you will be able to use thanks to<br/>
+			this extension.
+			<ul>
+				<li>Inteface Enhancements
+					<ul>
+						<li>Schema Builder enhancements
+							<ul>
+								<li>Hide Salesforce header</li>
+								<li>Hide All fields</li>
+								<li>Unwrap All fields</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
 
-		<div class="container selected" id="projects" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+				<li style="margin-top:10px;">Login Helper
+					<ul>
+						<li>Store credentials and tokens</li>
+						<li>Login with a single click from login screen</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="container selected hidden" id="loginHelper" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
+			<h1>Login Helper</h1>
+			<hr/>
+			With Login Helper you will be able to store Salesforce.com credentials, <br/>
+			so you don't have to worry about having them in your mind every time<br/>
+			you want to get into salesforce. <br/>
+			<br/>
+			Not only allows you to store credentials grouped by Project and ORG<br/>
+			but it can also store Tokens.<br/>
+			<br/>			
+			This means you will have everything login-related in the same place.
+		</div>
+		
+		<div class="container selected hidden" id="interfaceEnhancer" style="position:absolute;left:155px;right:0px;top:0px;botton:0px;">
+			<h1>Interface Enhancer</h1>
+			<hr/>
+		</div>
+		
+		<div class="container selected hidden" id="projects" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
 			<h1>Login Information</h1>
+			<hr/>
 			<table border="1" id="projects-table">
 				<tr>
 					<th>Project Name</th>
@@ -86,11 +97,11 @@
 					<th>Action</th>
 				</tr>
 			</table>
-			
-			
 		</div>
+		
 		<div class="container selected hidden" id="import" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
 			<h1>Import</h1>
+			<hr/>
 			<table border="1">
 				<tr>
 					<th>Paste here the text copied on the other computer and click <button id="import_save" >Save</button></th>
@@ -104,6 +115,7 @@
 		
 		<div class="container selected hidden" id="export" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
 			<h1>Export</h1>
+			<hr/>
 			<table border="1">
 				<tr>
 					<th>Copy this text to transfer the information to another computer</th>
@@ -118,6 +130,7 @@
 		
 		<div class="container selected hidden" id="about" style="position:absolute;left:155px;right:0px;top:0px;bottom:0px;">
 			<h1>About</h1>
+			<hr/>
 			This Chrome extension has been made by SeAlVaSoftware<br/>
 			If you have any suggestions, please visit http://cloud.sealvasoftware.com<br/><br/>
 			TODO
@@ -131,11 +144,24 @@
 			<hr/>
 			
 			<h1>Change Log</h1>
+			Version 0.0.0.8
+			<ul>
+				<li>First Level Structure changed: Login Helper | Interface Enhancer</li>
+				<li>Schema Builder Enhancements
+					<ul>
+						<li>Header can now be hidden</li>
+						<li>Fields can now be hidden</li>
+						<li>Fields can now be shown without any wrap (scroll)</li>
+					</ul>
+				</li>
+			</ul>
+			<br/>
 			Version 0.0.0.7
 			<ul>
 				<li>Start using Change Log</li>
 				<li>Updated to work with the new login theme</li>
 			</ul>
 		</div>
+		<input type="hidden" id="clipboard" />
 	</body>
 </html>
